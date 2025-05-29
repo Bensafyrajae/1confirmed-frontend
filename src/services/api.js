@@ -1,29 +1,35 @@
 // src/services/api.js
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3002/api';
+
 const api = axios.create({
-  baseURL: 'http://localhost:3002/api',
+  baseURL: API_BASE_URL,
   headers: {
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  },
 });
 
-// Add request interceptor for authentication
+// Request interceptor
 api.interceptors.request.use(
   (config) => {
-    // Get token from localStorage
-    const authStorage = localStorage.getItem('auth-storage');
-    const token = authStorage ? JSON.parse(authStorage).state?.token : null;
-    
+    const token = localStorage.getItem('auth-storage');
     if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+      try {
+        const { state } = JSON.parse(token);
+        if (state?.token) {
+          config.headers.Authorization = `Bearer ${state.token}`;
+        }
+      } catch (error) {
+        console.error('Error parsing token:', error);
+      }
     }
     return config;
   },
   (error) => Promise.reject(error)
 );
 
-// Add response interceptor for error handling
+// Response interceptor
 api.interceptors.response.use(
   (response) => response,
   (error) => {
