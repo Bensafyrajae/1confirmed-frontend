@@ -1,4 +1,3 @@
-// src/pages/Dashboard.jsx
 import React from 'react';
 import { useQuery } from 'react-query';
 import { 

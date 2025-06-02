@@ -195,7 +195,7 @@ const Register = () => {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
                 <Building2 className="h-7 w-7" />
               </div>
-              <h1 className="text-3xl font-bold">ImmoConnect</h1>
+              <h1 className="text-3xl font-bold">1Confirmed</h1>
             </div>
             <h2 className="text-4xl font-bold mb-4">
               Rejoignez la révolution immobilière

@@ -50,7 +50,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <Building2 className="h-5 w-5 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">ImmoConnect</h1>
+              <h1 className="text-xl font-bold text-gray-900">1Confirmed</h1>
               <p className="text-xs text-gray-500">{user?.agencyName}</p>
             </div>
           </div>
