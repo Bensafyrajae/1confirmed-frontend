@@ -51,7 +51,7 @@ export const useAuthStore = create(
           set({
             user,
             token,
-            isAuthenticated: true,
+            isAuthenticated: false,
             isLoading: false,
             error: null
           });

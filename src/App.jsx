@@ -30,6 +30,7 @@ const queryClient = new QueryClient({
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuthStore();
+  console.log('ProtectedRoute isAuthenticated:', isAuthenticated);
   return isAuthenticated ? children : <Navigate to="/login" />;
 };
 
@@ -72,7 +73,7 @@ function App() {
             </Route>
 
             {/* Catch all */}
-            <Route path="*" element={<Navigate to="/dashboard" />} />
+            {/* <Route path="*" element={<Navigate to="/dashboard" />} /> */}
           </Routes>
           
           <Toaster 

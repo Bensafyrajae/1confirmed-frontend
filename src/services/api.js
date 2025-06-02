@@ -35,7 +35,7 @@ api.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       localStorage.removeItem('auth-storage');
-      window.location.href = '/login';
+      window.location.replace('/login')
     }
     return Promise.reject(error);
   }

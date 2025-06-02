@@ -19,7 +19,7 @@ const Register = () => {
       const status = await registerUser(data);
       if (status === 201) {
         toast.success('Compte créé avec succès! Veuillez vous connecter.');
-        navigate('/login');
+        navigate('/dashboard');
       }
     } catch (error) {
       toast.error(error.response?.data?.message || 'Erreur lors de la création du compte');
